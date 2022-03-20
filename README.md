@@ -28,7 +28,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This purose of this project is to demonstrate the knowledge of building a
+This purose of this project is to demonstrate the knowledge of deploying webservers using CloudFormation
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -36,11 +36,10 @@ This purose of this project is to demonstrate the knowledge of building a
 
 ### Built With
  
-* HTML, CSS
+* YAML, JSON
 * [Amazon Web services](https://aws.amazon.com/)
 * [AWS IAM](https://aws.amazon.com/iam/#:~:text=AWS%20Identity%20and%20Access%20Management%20(IAM)%20provides%20fine%2Dgrained,to%20ensure%20least%2Dprivilege%20permissions.)
-* [AWS S3](https://aws.amazon.com/s3/)
-* [AWS CloudFront](https://aws.amazon.com/cloudfront/)
+* [AWS CloudFormation](https://aws.amazon.com/cloudformation/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -90,8 +89,7 @@ This purose of this project is to demonstrate the knowledge of building a
 
 <!-- Instructions -->
 ## Instructions
-1. Make sure you are signed in as IAM user, and not root user, as it is a secure practice to work as IAM user, and should not use or share root user as it is not a good practice
-   and unsecure.
+1. Make sure you are signed in as IAM user, and not root user, as it is a secure practice to work as IAM user, and should not use or share root user as it is not a good practice and unsecure.
    
 #### S3 
 2. Create an S3 bucket.<br>
