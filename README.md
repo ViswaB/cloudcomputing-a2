@@ -111,7 +111,8 @@ This purose of this project is to demonstrate the knowledge of deploying webserv
     
     d. From this step the first file we will upload is the provided network template file called "ci-network.yaml". This file has establishes resources to set up NAT gateway, 2 private and 2 public in each of the 2 availability zones. This file can be viewed in the designer and it will look like screenshot below: ![image](https://user-images.githubusercontent.com/68451169/159191185-ef5d0abc-38f7-4a54-ad10-eba38e5980ee.png)
     
-    e. Then we need 
+    e. Then click next on the "Specify Template" page, this will redirect to step 2 of the creation which is "Specify stack details". This will require a stack name, and Parameters for this stack. In this particular case we are setting up the network, for which we need 2 private subnet IP addresses in CIDR notation, and 2 public subnet IPs, along with the VPC. This can be left at the default values that are provided in the YAML file, an JSON parameters file as shown below. 
+    f. The next is step 3 - configure stack options - this can be left as it is. And finally review the details in the next page and click "Create Stack"
 
     
 4. This process of creating the CloudFormation stack for deploying webservers can also be done through the command line. For this it is important to configure aws on the local host system.
