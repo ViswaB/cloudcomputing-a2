@@ -117,11 +117,15 @@ This purose of this project is to demonstrate the knowledge of deploying webserv
     h. Additionally searching for VPC resource in AWS will show all the different resources we created, such as the NAT gateways, Subnets, and internet gateway.
 
     
-4. The next step is to deploy 2 servers, on of which is given in the servers.yaml file. In this configuration, we are using Autoscaling and loadbalancer. Following same steps as above, we can create a cloudformation stack for the first server, which deploys .... This is what the diagram looks like in the designer ![image](https://user-images.githubusercontent.com/68451169/160035562-10176e00-2438-4fcb-a1f6-a644705c722a.png)
+4. The next step is to deploy 2 servers, 1 of which is given in the servers.yaml file. In this configuration, we are using Autoscaling and loadbalancer. Following same steps as above, we can create a cloudformation stack for the first server, which deploys 3 EC2 instances.  .... This is what the diagram looks like in the designer ![image](https://user-images.githubusercontent.com/68451169/160035562-10176e00-2438-4fcb-a1f6-a644705c722a.png)
 
+5. The second instance is created in a much simpler manner without Auto Scaling or load balancer in order to demonstrate the knowledge of deploying servers based on the output of the network stack, using Yaml. Here is the diagram that shows how the EC2 that will be created in this stack is connected to the security group created from the network stack. The important thing is to use !Ref in yaml and reference the VPCID created by the network stack, the details of the process can be seen in the yaml file, how it uses the AMI, and current keyname as well as referes to the subnets of the network that we created earlier. ![image](https://user-images.githubusercontent.com/68451169/160171736-ad6ce01d-b975-4daf-b8af-859ad0860a57.png)
+6. When inputting parameters ensure to provide the same environment name used to create the network stack in order for the yaml code to reference the vpcid from the desired network. ![image](https://user-images.githubusercontent.com/68451169/160172021-de15a313-1844-4a30-9315-8895e7a03083.png)
 
-    
-5. This process of creating the CloudFormation stack for deploying webservers can also be done through the command line. For this it is important to configure aws on the local host system.
+ 
+6. A jumpbox is needed to be setup so that we can test to see whether or not the instances were successfully deployed in the right network that was created using yaml in the earlier step
+
+7. This process of creating the CloudFormation stack for deploying webservers can also be done through the command line. For this it is important to configure aws on the local host system.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
