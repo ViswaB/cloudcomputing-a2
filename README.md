@@ -120,9 +120,10 @@ This purose of this project is to demonstrate the knowledge of deploying webserv
 4. The next step is to deploy 2 servers, 1 of which is given in the servers.yaml file. In this configuration, we are using Autoscaling and loadbalancer. Following same steps as above, we can create a cloudformation stack for the first server, which deploys 3 EC2 instances.  .... This is what the diagram looks like in the designer ![image](https://user-images.githubusercontent.com/68451169/160035562-10176e00-2438-4fcb-a1f6-a644705c722a.png)
 
 5. The second instance is created in a much simpler manner without Auto Scaling or load balancer in order to demonstrate the knowledge of deploying servers based on the output of the network stack, using Yaml. Here is the diagram that shows how the EC2 that will be created in this stack is connected to the security group created from the network stack. The important thing is to use !Ref in yaml and reference the VPCID created by the network stack, the details of the process can be seen in the yaml file, how it uses the AMI, and current keyname as well as referes to the subnets of the network that we created earlier. ![image](https://user-images.githubusercontent.com/68451169/160171736-ad6ce01d-b975-4daf-b8af-859ad0860a57.png)
-6. When inputting parameters ensure to provide the same environment name used to create the network stack in order for the yaml code to reference the vpcid from the desired network. ![image](https://user-images.githubusercontent.com/68451169/160172021-de15a313-1844-4a30-9315-8895e7a03083.png)
-7. The third yaml file that is included in this repo, deploys an ec2 instance. As the file indicated 
-8. The stack events page will clearly state if the instance is successfully created. Then we can go to the EC2 service page to see if the specific instance has been deployed.
+
+6. The important parameters needed to create this ec2 instance on this 2nd server that is different from the previous server (which used autoscaling and loadbalancer) is that this doesn't require the process of autoscaling, but since we need to deploy it on the network created in the first cloudformation stack, we include a subnet parameter to input the appropriate subnet id associated with the vpcid of the network interface we want it in.
+
+7. The stack events page will clearly state if the instance is successfully created. Then we can go to the EC2 service page to see if the specific instance has been deployed.
 ![image](https://user-images.githubusercontent.com/68451169/160223747-d91c52e4-3f86-41c2-b6ad-155ec7f203e9.png)
 
 ![image](https://user-images.githubusercontent.com/68451169/160223711-622f247d-87a8-4346-8262-07ed2be35162.png)
