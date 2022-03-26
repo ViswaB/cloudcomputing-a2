@@ -121,11 +121,22 @@ This purose of this project is to demonstrate the knowledge of deploying webserv
 
 5. The second instance is created in a much simpler manner without Auto Scaling or load balancer in order to demonstrate the knowledge of deploying servers based on the output of the network stack, using Yaml. Here is the diagram that shows how the EC2 that will be created in this stack is connected to the security group created from the network stack. The important thing is to use !Ref in yaml and reference the VPCID created by the network stack, the details of the process can be seen in the yaml file, how it uses the AMI, and current keyname as well as referes to the subnets of the network that we created earlier. ![image](https://user-images.githubusercontent.com/68451169/160171736-ad6ce01d-b975-4daf-b8af-859ad0860a57.png)
 6. When inputting parameters ensure to provide the same environment name used to create the network stack in order for the yaml code to reference the vpcid from the desired network. ![image](https://user-images.githubusercontent.com/68451169/160172021-de15a313-1844-4a30-9315-8895e7a03083.png)
+7. The third yaml file that is included in this repo, deploys an ec2 instance. As the file indicated 
+8. The stack events page will clearly state if the instance is successfully created. Then we can go to the EC2 service page to see if the specific instance has been deployed.
+![image](https://user-images.githubusercontent.com/68451169/160223747-d91c52e4-3f86-41c2-b6ad-155ec7f203e9.png)
+
+![image](https://user-images.githubusercontent.com/68451169/160223711-622f247d-87a8-4346-8262-07ed2be35162.png)
 
  
-6. A jumpbox is needed to be setup so that we can test to see whether or not the instances were successfully deployed in the right network that was created using yaml in the earlier step
+8. A jumpbox is needed to be setup so that we can test to see whether or not the instances were successfully deployed in the right network that was created using yaml in the earlier step. The reason is because we deployed ec2 instances on the private subnets of the network which cannot be accessed directly, therefore we will create a jumpbox and ssh for this step. The first step is launch a new EC2 instance and with type t2.micro. For configuration step in creating instance, in network section select vpc created from the deployment of network from earlier step, then select a public subnet for the next section, and enable Auto-assign Public IP. Leave storage step as default. Then for Tags add a key with name "Jumpbox" for your reference. Then create a new security group, and add rule to allow SSH on port 22 from your ip source. Below are screenshots that will help with these details. ![image](https://user-images.githubusercontent.com/68451169/160222638-89e07c8f-700d-4e87-891c-ed37de669e18.png)
+![image](https://user-images.githubusercontent.com/68451169/160222651-fdbe129c-65f3-49c3-a8b5-e1be40e831dd.png)
+![image](https://user-images.githubusercontent.com/68451169/160222665-9ee3045d-38d8-4235-81e3-4ea7f603799d.png)
 
-7. This process of creating the CloudFormation stack for deploying webservers can also be done through the command line. For this it is important to configure aws on the local host system.
+9. Now enter the command: (screenshot below) replace with jumpbox ec2 instance key, and the key used for the private server instance, and ensure to enter your jumpbox ip address respectively.  ![image](https://user-images.githubusercontent.com/68451169/160222941-1d920ab0-fa98-4ee3-ac9d-b114a1227cb3.png)
+10. After this use ssh command to ssh to jumpbox. Once in the Jumpbox "ls" to ensure the key of the private server is in, then use chmod 400 on the key to change permission. The next step is to ssh to the private server using ubuntu@(private server ip). Once you ssh inside this private instance, run the command "service apache2 status", to check if Apache server is running in this ubuntu machine. This can be repeated for all the instances that are created.
+
+
+11. This process of creating the CloudFormation stack for deploying webservers can also be done through the command line. For this it is important to configure aws on the local host system.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
