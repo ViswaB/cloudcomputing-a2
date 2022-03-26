@@ -131,10 +131,9 @@ This purose of this project is to demonstrate the knowledge of deploying webserv
 ![image](https://user-images.githubusercontent.com/68451169/160222665-9ee3045d-38d8-4235-81e3-4ea7f603799d.png)
 
 9. Now enter the command: (screenshot below) replace with jumpbox ec2 instance key, and the key used for the private server instance, and ensure to enter your jumpbox ip address respectively.  ![image](https://user-images.githubusercontent.com/68451169/160222941-1d920ab0-fa98-4ee3-ac9d-b114a1227cb3.png)
-10. After this use ssh command to ssh to jumpbox. Once in the Jumpbox "ls" to ensure the key of the private server is in, then use chmod 400 on the key to change permission. The next step is to ssh to the private server using ubuntu@(private server ip). Once you ssh inside this private instance, run the command "service apache2 status", to check if Apache server is running in this ubuntu machine. This can be repeated for all the instances that are created.
 
+10. After this use ssh command to ssh to jumpbox. Once in the Jumpbox "ls" to ensure the key of the private server is in, then use chmod 400 on the key to change permission. The next step is to ssh to the private server using ubuntu@(private server ip). Once you ssh inside this private instance, run the command "service apache2 status", to check if Apache server is running in this ubuntu machine. This can be repeated for all the instances that are created. 
 
-11. This process of creating the CloudFormation stack for deploying webservers can also be done through the command line. For this it is important to configure aws on the local host system.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
