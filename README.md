@@ -22,9 +22,6 @@
   </ol>
 </details>
 
-## Project Link
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
