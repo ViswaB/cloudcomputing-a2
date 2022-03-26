@@ -1,0 +1,18 @@
+[
+	{
+		"ParameterKey": "EnvironmentName",
+		"ParameterValue": "a2cc"
+	},
+    {
+        "ParameterKey": "KeyName",
+        "ParameterValue": "a2s2"
+    },
+    {
+        "ParameterKey": "AMItoUse",
+        "ParameterValue": "ami-064ff912f78e3e561"
+    },
+    {
+        "ParameterKey": "SubnetId",
+        "ParameterValue": "subnet-0e7944b52a121f6fb"
+    }
+]

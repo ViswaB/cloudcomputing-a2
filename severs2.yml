@@ -1,0 +1,24 @@
+Description: >
+    set up servers
+Parameters:
+    EnvironmentName:
+        Description: An environment name that will be prefixed to resource names
+        Type: String
+    KeyName:
+        Description: Name of an existing EC2 KeyPair to enable SSH access to the instances
+        Type: 'AWS::EC2::KeyPair::KeyName'
+        ConstraintDescription: must be the name of an existing EC2 KeyPair.
+    AMItoUse:
+        Description: AMI to use for our base image
+        Type: String
+    SubnetId:
+        Description: Subnet ID created by when deploying network
+        Type: AWS::EC2::Subnet::Id
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref AMItoUse
+      KeyName: !Ref KeyName
+      SubnetId: !Ref SubnetId
+      InstanceType: t2.micro
